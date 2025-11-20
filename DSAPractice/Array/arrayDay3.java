@@ -130,6 +130,8 @@ int arr4[]={10,20,30,40,50};
   reversArray(arr4);
  System.out.print("Reverse array:"+Arrays.toString(arr4));
 
+ 
+
 // int arr4[]={10,20,30,40,50,60};
 // int s=arr4.length;
 
