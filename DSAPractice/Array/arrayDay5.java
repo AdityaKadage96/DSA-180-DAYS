@@ -81,7 +81,7 @@ public class arrayDay5 {
    System.out.println();
 //-----------------------------------------------------------------------------------------------------------------
 
-   //5.Moves all negative to one side of array
+   //4.Moves all negative to one side of array
    int arr5[]={1,-2,3,-4,-5,6,7};
    
    int j=0;
