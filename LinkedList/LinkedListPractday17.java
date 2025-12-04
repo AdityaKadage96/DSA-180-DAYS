@@ -35,6 +35,50 @@ class LinkedList{
 
         size++;
     }
+
+    void deleteAtHead(){
+        if(head==null){
+            System.out.println("linked list is empty");
+            return;
+        }
+        head=head.next;
+        if(head==null) tail=null;
+
+        size--;
+    }
+
+    void deleteAtTail(){
+        if(head==null){
+            System.out.println("linked list is empty");
+            return;
+        }
+
+        if(head==tail){
+            head=tail=null;
+        }else{
+            Node curr=head;
+
+            while(curr.next!=tail){
+                curr=curr.next;
+            }
+            curr.next=null;
+            tail=curr;
+        }
+        size--;
+    }
+
+    int searchEle(int val){
+        if(head==null) return -1;
+        Node curr=head;
+        int idx=0;
+        while(curr!=null){
+            if(curr.val==val) return idx;
+            curr=curr.next;
+            idx++;
+        }
+        return -1;
+
+    }
     
     boolean search(int val){
         if(head==null) return false;
@@ -76,6 +120,17 @@ public class LinkedListPractday17 {
 
      //4.Search element in linkedlist (boolean function)
       ll.search(60);
+    
+    //5.Search element in linkedlist - int function , return value integer
+      ll.searchEle(20);
+      ll.searchEle(100);
+
+      System.out.println(ll.searchEle(20));
+      System.out.println(ll.searchEle(60));
+
+    //6.Delete at head
+      ll.deleteAtHead();
+      ll.deleteAtTail();
 
       System.out.println(ll.search(60));// Ouptut:true
 
