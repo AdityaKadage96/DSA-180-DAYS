@@ -36,6 +36,29 @@ class LinkedList{
         size++;
     }
 
+    void insertAtIdx(int val,int idx){
+        if(idx<0 || idx>size){
+            System.out.println("Invalid index");
+        }else if(idx==0){
+            insertAtHead(val);
+            return;
+        }else if(idx==size){
+            insertAtTail(val);
+            return;
+        }else{
+            Node newNode=new Node(val);
+            Node curr=head;
+
+            for(int i=0;i<=idx-1;i++){
+                curr=curr.next;
+            }
+            newNode.next=curr.next;
+            curr.next=newNode;
+
+            size++;
+        }
+    }
+
     void deleteAtHead(){
         if(head==null){
             System.out.println("linked list is empty");
@@ -63,6 +86,30 @@ class LinkedList{
             }
             curr.next=null;
             tail=curr;
+        }
+        size--;
+    }
+
+    void deleteAtIdx(int idx){
+        if(idx<0 || idx>=size){
+            System.out.println("Invalid index");
+            return;
+        }else if(idx==0){
+            deleteAtHead();
+            return;
+        }else if(idx==size){
+            deleteAtTail();
+            return;
+        }else{
+            Node curr=head;
+           for(int i=0;i<=idx-1;i++){
+            curr=curr.next;
+           }
+            curr.next=curr.next.next;
+            
+            if(idx==size-1){
+                tail=curr;
+            }
         }
         size--;
     }
@@ -131,6 +178,18 @@ public class LinkedListPractday17 {
     //6.Delete at head
       ll.deleteAtHead();
       ll.deleteAtTail();
+    
+    //7.insert At index
+      ll.insertAtIdx(100,2);
+      ll.insertAtIdx(150,3);
+
+      ll.display();
+
+    //8.delete at index
+      ll.deleteAtIdx( 3);
+
+      ll.display();
+      
 
       System.out.println(ll.search(60));// Ouptut:true
 
