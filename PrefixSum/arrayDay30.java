@@ -1,6 +1,7 @@
 package PrefixSum;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class arrayDay30 {
     public static int sumOddLengthSubarrays(int[] arr) {
@@ -33,6 +34,33 @@ public class arrayDay30 {
         }
         return nums;
     }
+
+    public static int findMaxLength(int[] nums) {
+        HashMap<Integer,Integer>map=new HashMap<>();
+
+        int sum=0;
+        int maxLen=0;
+
+        map.put(0,-1);
+
+        for(int i=0;i<nums.length;i++){
+
+            if(nums[i]==0){
+                sum -=1;
+
+            }else{
+                sum +=1;
+            }
+
+            if(map.containsKey(sum)){
+                maxLen=Math.max(maxLen,i-map.get(sum));
+            }else{
+                map.put(sum,i);
+            }
+        }
+
+        return maxLen;
+    }
     public static void main(String[]args){
         //1.Sum of all odd length subarray
         int arr[]={1,4,2,5,3};
@@ -45,6 +73,13 @@ public class arrayDay30 {
         int arr2[]={1,2,3,4};
         runningSum(arr2);
         System.out.println(Arrays.toString(runningSum(arr2)));
+
+        //Day32. Contiguos array
+        int arr3[]={0,1,0};
+        findMaxLength(arr3);
+
+        System.out.println(findMaxLength(arr3));
+
         
 
 
