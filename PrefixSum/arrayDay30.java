@@ -61,6 +61,20 @@ public class arrayDay30 {
 
         return maxLen;
     }
+
+    public static int minStartValue(int[] nums) {
+        int sum=0;
+        int minSum=Integer.MAX_VALUE;
+
+        for(int num :nums){
+            sum +=num;
+            minSum=Math.min(minSum,sum);
+        }
+
+        if(minSum >=1) return 1;
+
+        return 1-minSum;
+    }
     public static void main(String[]args){
         //1.Sum of all odd length subarray
         int arr[]={1,4,2,5,3};
@@ -79,6 +93,15 @@ public class arrayDay30 {
         findMaxLength(arr3);
 
         System.out.println(findMaxLength(arr3));
+
+        //Day33- Minimum value to get Positive step by step Sum
+
+        int arr4[]={-3,2,-3,4,2};
+
+        minStartValue(arr4);
+        System.out.println(minStartValue(arr4));
+
+
 
         
 
