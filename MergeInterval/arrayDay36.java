@@ -49,6 +49,24 @@ public class arrayDay36 {
 
         return count;
     }
+
+     public static  int findPoisonedDuration(int[] timeSeries, int duration) {
+        int sum=0;
+
+        for(int i=0;i<timeSeries.length-1;i++){
+            int gap=timeSeries[i+1]-timeSeries[i];
+
+            if(gap >=duration){
+                sum=sum + duration;
+            }else{
+                sum=sum + gap;
+            }
+        }
+
+        sum +=duration;
+
+        return sum;
+    }
     
     public static void main(String[]args){
      //1.Interval List intersection
@@ -66,6 +84,19 @@ public class arrayDay36 {
     int [][]arr={{1,2},{2,3},{3,4},{1,3}};
     nonOverlapIntervals(arr);
     System.out.println(nonOverlapIntervals(arr));
+
+
+    //Day38- Teemo Attacking
+
+    System.out.println("Teemo attacking problem");
+
+    int timeSeries[]={1,4};
+    int duration=2;
+
+    findPoisonedDuration(timeSeries, duration);
+    System.out.println(findPoisonedDuration(timeSeries, duration));
+
+
     
 
 
