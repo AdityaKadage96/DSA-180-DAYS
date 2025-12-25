@@ -68,6 +68,27 @@ public class arrayDay36 {
         return sum;
     }
     
+    public static List<String> summaryRanges(int[] nums) {
+        List<String>res=new ArrayList<>();
+        
+        if(nums.length == 0) return res;
+        int st=nums[0];
+        for(int i=1;i<=nums.length;i++){
+            if(i==nums.length || nums[i]!=nums[i-1]+1){
+                if(st==nums[i-1]){
+                    res.add(String.valueOf(st));
+                }else{
+                    res.add(st +"->" + nums[i-1]);
+                }
+
+                if(i< nums.length){
+                    st= nums[i];
+                }
+            }
+        }
+
+        return res;
+    }
     public static void main(String[]args){
      //1.Interval List intersection
      int[][] firstList  = {{0,2},{5,10},{13,23},{24,25}};
@@ -95,6 +116,12 @@ public class arrayDay36 {
 
     findPoisonedDuration(timeSeries, duration);
     System.out.println(findPoisonedDuration(timeSeries, duration));
+
+    //Day 39-Summary Ranges
+     int arr9[]={0,1,2,4,5,7};
+     List<String>result=summaryRanges(arr9);
+
+     System.out.println(result);
 
 
     
