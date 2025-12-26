@@ -89,6 +89,19 @@ public class arrayDay36 {
 
         return res;
     }
+
+    public static int missingNumber(int[] nums) {
+        int n=nums.length;
+        int sumexp= n*(n+1)/2;
+        int actSum=0;
+
+        for(int num :nums){
+            actSum += num;
+        }
+
+        return sumexp-actSum;
+    }
+
     public static void main(String[]args){
      //1.Interval List intersection
      int[][] firstList  = {{0,2},{5,10},{13,23},{24,25}};
@@ -123,6 +136,12 @@ public class arrayDay36 {
 
      System.out.println(result);
 
+
+     //Day 40 - Missing Number
+
+     int nums[]={3,0,1};
+     missingNumber(nums);
+     System.out.println(missingNumber(nums));
 
     
 
