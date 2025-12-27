@@ -102,6 +102,19 @@ public class arrayDay36 {
         return sumexp-actSum;
     }
 
+
+    public static int numIdenticalPairs(int[] nums) {
+        int count[]=new int[101];
+        int goodPairs=0;
+        
+        for(int num:nums){
+            goodPairs +=count[num];
+            count[num]++;
+        }
+
+        return goodPairs;
+    }
+
     public static void main(String[]args){
      //1.Interval List intersection
      int[][] firstList  = {{0,2},{5,10},{13,23},{24,25}};
@@ -142,6 +155,15 @@ public class arrayDay36 {
      int nums[]={3,0,1};
      missingNumber(nums);
      System.out.println(missingNumber(nums));
+
+    
+    //Day 41- Number of good pairs
+
+    int num2[]={1,2,3,1,1,3};
+    numIdenticalPairs(num2);
+    System.out.println(numIdenticalPairs(num2));
+
+
 
     
 
