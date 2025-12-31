@@ -1,6 +1,7 @@
 package MergeInterval;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class arrayDay43 {
     public static int[] plusOne(int[] digits) {
@@ -40,6 +41,22 @@ public class arrayDay43 {
 
         return max;
     }
+
+    public static int numJewelsInStones(String jewels, String stones) {
+        HashSet<Character>set=new HashSet<>();
+        int count=0;
+        for(char c:jewels.toCharArray()){
+            set.add(c);
+        }
+
+        for(char c:stones.toCharArray()){
+            if(set.contains(c)){
+                count++;
+            }
+        }
+
+        return count;
+    }
     public static void main(String[]args){
         //1.Plus one
 
@@ -51,5 +68,19 @@ public class arrayDay43 {
         String s="EEEEEEE";
         minimumChairs(s);
         System.out.println(minimumChairs(s));
+
+
+        //3.Jewels and stones
+
+      String j="aA";
+      String s1="aAAbbbb";
+      numJewelsInStones(j,s1);
+      System.out.println(numJewelsInStones(j, s));
+
+
     }
+
+    
+    
+    
 }
