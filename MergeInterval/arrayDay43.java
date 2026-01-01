@@ -75,7 +75,7 @@ public class arrayDay43 {
       String j="aA";
       String s1="aAAbbbb";
       numJewelsInStones(j,s1);
-      System.out.println(numJewelsInStones(j, s));
+      System.out.println(numJewelsInStones(j,s1));
 
 
     }
