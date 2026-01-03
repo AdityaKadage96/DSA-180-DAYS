@@ -1,5 +1,5 @@
 package Stack;
-
+import java.util.Stack;
 public class stackDay46 {
     public static String makeGood(String s) {
         StringBuilder sb=new StringBuilder();
@@ -14,10 +14,36 @@ public class stackDay46 {
 
         return sb.toString();
     }
+
+     public static boolean isValid(String s) {
+        Stack<Character>t=new Stack<>();
+
+        for(char c:s.toCharArray()){
+            if(c=='('){
+               t.push(')');
+            }else if(c=='{'){
+                t.push('}');
+            }else if(c=='['){
+                t.push(']');
+            }else if(t.isEmpty() || t.pop() !=c){
+                return false;
+            }
+        }
+
+        return t.isEmpty();
+    }
     public static void main(String[]args){
         //1.Make the string great
         String s="leEeetcode";
         makeGood(s);
         System.out.println(makeGood(s));
+
+        //Day 48- valid parantheses
+
+        String s2 = "()";
+        isValid(s2);
+        System.out.println(isValid(s2));
+
+
     }
 }
