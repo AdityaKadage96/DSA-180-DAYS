@@ -42,16 +42,40 @@ public class stackDay50 {
 
         return res.toString();
     }
+
+    public static int minOperations(String[] logs) {
+        int step=0;
+
+        for(String l:logs){
+            if(l.equals("../")){
+                if(step > 0){
+                    step--;
+                }
+            }else if(!l.equals("./")){
+                step++;
+            }
+        }
+
+        return step;
+    }
     public static void main(String[]args){
-        //1. Final value of variable after peroforming operation
+        // Day50 -1. Final value of variable after peroforming operation
         String s[]={"--X","X++","X++"};
         finalValueAfterOperations(s);
         System.out.println(finalValueAfterOperations(s));
 
-        //2.Remove Outermost parantheses
+        // Day51 -2.Remove Outermost parantheses
 
         String s2 = "(()())(())";
         removeOuterParentheses(s2);
         System.out.println(removeOuterParentheses(s2));
+
+
+        //3. Day 52-Crawler Log Folder
+
+        String s3[]={"d1/","d2/","./","d3/","../","d31/"};
+
+        minOperations(s3);
+        System.out.println(minOperations(s3));
     }
 }
