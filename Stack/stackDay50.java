@@ -58,6 +58,22 @@ public class stackDay50 {
 
         return step;
     }
+
+     public static int maxDepth(String s) {
+        int depth=0;
+        int max=0;
+
+        for(char ch:s.toCharArray()){
+           if(ch=='('){
+              depth++;
+              max=Math.max(max,depth);
+           }else if(ch == ')'){
+            depth--;
+           }
+        }
+
+        return max;
+    }
     public static void main(String[]args){
         // Day50 -1. Final value of variable after peroforming operation
         String s[]={"--X","X++","X++"};
@@ -77,5 +93,11 @@ public class stackDay50 {
 
         minOperations(s3);
         System.out.println(minOperations(s3));
+
+        //Day 53-Maximum depth of nesting parenthesis
+
+        String  s4="(1+(2*3)+((8)/4))+1";
+        maxDepth(s4);
+        System.out.println(maxDepth(s4));
     }
 }
