@@ -74,6 +74,24 @@ public class stackDay50 {
 
         return max;
     }
+
+     public static int minAddToMakeValid(String s) {
+        int op=0;
+        int ad=0;
+       
+
+        for(char c: s.toCharArray()){
+            if(c == '('){
+                op++;
+            }else if(op>0){
+                op--;
+            }else{
+                ad++;
+            }
+        }
+
+        return ad+op;
+    }
     public static void main(String[]args){
         // Day50 -1. Final value of variable after peroforming operation
         String s[]={"--X","X++","X++"};
@@ -99,5 +117,13 @@ public class stackDay50 {
         String  s4="(1+(2*3)+((8)/4))+1";
         maxDepth(s4);
         System.out.println(maxDepth(s4));
+
+        //Day 54 -Minimum add to make parenthesis valid
+
+        String s5 = "())";
+        minAddToMakeValid(s5);
+        System.out.println(minAddToMakeValid(s5));
+        
     }
+
 }
