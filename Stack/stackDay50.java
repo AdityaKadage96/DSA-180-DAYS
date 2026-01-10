@@ -1,5 +1,8 @@
 package Stack;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class stackDay50 {
 
     public static int finalValueAfterOperations(String[] operations) {
@@ -92,6 +95,21 @@ public class stackDay50 {
 
         return ad+op;
     }
+
+    public static List<String> buildArray(int[] target, int n) {
+        List<String>res=new ArrayList<>();
+        int j=0;
+        for(int i=1;i<=n && j<target.length;i++){
+                res.add("Push");
+                if(i==target[j]){
+                    j++;
+                }else{
+                    res.add("Pop");
+                }
+        }
+
+        return res;
+    }
     public static void main(String[]args){
         // Day50 -1. Final value of variable after peroforming operation
         String s[]={"--X","X++","X++"};
@@ -123,7 +141,13 @@ public class stackDay50 {
         String s5 = "())";
         minAddToMakeValid(s5);
         System.out.println(minAddToMakeValid(s5));
-        
+
+        //Day 55-Build an array with  stack operation
+
+        int arr[]={1,3};
+        int n=3;
+        buildArray(arr, n);
+        System.out.println(buildArray(arr, n));
     }
 
 }
