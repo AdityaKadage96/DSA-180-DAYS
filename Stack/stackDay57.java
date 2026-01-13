@@ -21,7 +21,7 @@ public class stackDay57 {
         }
 
         return nums1;
-    }
+    } 
     public static void main(String[]args){
        //Day 57
        //1.Next greater element
@@ -33,6 +33,6 @@ public class stackDay57 {
        
        for(int i=0;i<res.length;i++){
            System.out.print(res[i]+" ");
-       }
+       } 
     }
 }
