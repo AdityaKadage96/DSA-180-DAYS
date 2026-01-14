@@ -20,12 +20,37 @@ public class hashMapDay58 {
 
         return -1;
     }
+      public static boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character, Integer> map = new HashMap<>();
 
+       
+        for (char c : magazine.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        
+        for (char c : ransomNote.toCharArray()) {
+
+            if (map.getOrDefault(c, 0) == 0) {
+                return false;
+            }
+
+            map.put(c, map.get(c) - 1);
+        }
+
+        return true;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
        String s = "leetcode";
        firstUniqChar(s);
        System.out.println(firstUniqChar(s));
+
+       //Day 59- Ransom Node
+       String ransomNote = "a";
+       String magazine = "b";
+       canConstruct(ransomNote, magazine);
+       System.out.println(canConstruct(ransomNote, magazine));
+
     }
 }
