@@ -39,6 +39,32 @@ public class hashMapDay58 {
 
         return true;
     }
+
+    public static int longestPalindrome(String s) {
+        HashMap<Character,Integer>mp=new HashMap<>();
+
+        for(char c:s.toCharArray()){
+            mp.put(c,mp.getOrDefault(c,0)+1);
+        }
+
+        int len=0;
+        boolean hOdd=false;
+
+        for(int co : mp.values()){
+            if(co%2==0){
+                len += co;
+            }else{
+                len += co-1;
+                hOdd=true;
+            }
+        }
+
+        if(hOdd){
+            len +=1;
+        }
+
+        return len;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -51,6 +77,12 @@ public class hashMapDay58 {
        String magazine = "b";
        canConstruct(ransomNote, magazine);
        System.out.println(canConstruct(ransomNote, magazine));
+
+       //Day 60- longest palindrom
+       String s6 = "abccccdd";
+       longestPalindrome(s6);
+       System.out.println(longestPalindrome(s6));
+
 
     }
 }
