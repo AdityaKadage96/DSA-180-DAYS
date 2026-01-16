@@ -1,6 +1,7 @@
 package HashMap;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class hashMapDay58 {
@@ -65,6 +66,24 @@ public class hashMapDay58 {
 
         return len;
     }
+
+    public static boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer,Integer>mp=new HashMap<>();
+
+        for(int num:arr){
+            mp.put(num,mp.getOrDefault(num,0)+1);
+        }
+
+        HashSet<Integer>set=new HashSet<>();
+
+        for(int freq:mp.values()){
+            if(!set.add(freq)){
+                return false;
+            }
+        }
+
+        return true;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -82,6 +101,11 @@ public class hashMapDay58 {
        String s6 = "abccccdd";
        longestPalindrome(s6);
        System.out.println(longestPalindrome(s6));
+
+       //Day 61-Unique Number of occureances
+       int arr[]={1,2,2,1,1,3};
+       uniqueOccurrences(arr);
+       System.out.println(uniqueOccurrences(arr));
 
 
     }
