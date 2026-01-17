@@ -84,6 +84,22 @@ public class hashMapDay58 {
 
         return true;
     }
+
+    public static int luckyNumber(int arr[]){
+        HashMap<Integer,Integer>mp=new HashMap<>();
+        int luckyInt=-1;
+        
+        for(int n:arr){
+            mp.put(n,mp.getOrDefault(n,0)+1);
+        }
+
+        for(int k:mp.keySet()){
+            if(k==mp.get(k)){
+                luckyInt=Math.max(luckyInt,k);
+            }
+        }
+        return luckyInt;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -106,6 +122,11 @@ public class hashMapDay58 {
        int arr[]={1,2,2,1,1,3};
        uniqueOccurrences(arr);
        System.out.println(uniqueOccurrences(arr));
+
+       //Day 62-Find lucky integer in an Array
+       int arr2[]={2,2,3,4};
+       luckyNumber(arr2);
+       System.out.println(luckyNumber(arr2));
 
 
     }
