@@ -100,6 +100,16 @@ public class hashMapDay58 {
         }
         return luckyInt;
     }
+
+     public static boolean checkIfPangram(String sentence) {
+        HashMap<Character,Boolean>mp=new HashMap<>();
+
+        for(char c:sentence.toCharArray()){
+            mp.put(c,true);
+        }
+
+        return mp.size()==26;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -127,6 +137,11 @@ public class hashMapDay58 {
        int arr2[]={2,2,3,4};
        luckyNumber(arr2);
        System.out.println(luckyNumber(arr2));
+
+       //Day 63-Check if the Sentence is Pangram
+       String sentence = "thequickbrownfoxjumpsoverthelazydog";
+       checkIfPangram(sentence);
+       System.out.println(checkIfPangram(sentence));
 
 
     }
