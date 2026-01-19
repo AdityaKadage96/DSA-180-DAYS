@@ -110,6 +110,24 @@ public class hashMapDay58 {
 
         return mp.size()==26;
     }
+
+    public static char findTheDifference(String s, String t) {
+        HashMap<Character,Integer>mp=new HashMap<>();
+
+        for(char c:s.toCharArray()){
+            mp.put(c,mp.getOrDefault(c,0)+1);
+        }
+        
+
+        for(char c:t.toCharArray()){
+            if(!mp.containsKey(c) || mp.get(c)==0){
+                return c;
+            }
+            mp.put(c,mp.get(c)-1);
+        }
+
+        return ' ';
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -142,6 +160,14 @@ public class hashMapDay58 {
        String sentence = "thequickbrownfoxjumpsoverthelazydog";
        checkIfPangram(sentence);
        System.out.println(checkIfPangram(sentence));
+
+       //Day 64- find the differnce
+
+        String s5 = "abcd";
+        String t = "abcde";
+
+        findTheDifference(s5, t);
+        System.out.println(findTheDifference(s5, t));
 
 
     }
