@@ -128,6 +128,28 @@ public class hashMapDay58 {
 
         return ' ';
     }
+
+    public static boolean checkOccurancesofCharacter(String s){
+        HashMap<Character,Integer>mp=new HashMap<>();
+
+        for(char c:s.toCharArray()){
+            mp.put(c,mp.getOrDefault(c,0)+1);
+        }
+
+        int firstCount=-1;
+
+        for(int count:mp.values()){
+            if(firstCount==-1){
+                firstCount=count;
+            }else if(count!=firstCount){
+                return false;
+            }
+        }
+
+        return true;
+
+
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -168,6 +190,14 @@ public class hashMapDay58 {
 
         findTheDifference(s5, t);
         System.out.println(findTheDifference(s5, t));
+
+        //Day 65- Check if all string have equal number of occurances
+        String s8 = "abacbc";
+        checkOccurancesofCharacter(s8);
+        System.out.println(checkOccurancesofCharacter(s8));
+        
+
+
 
 
     }
