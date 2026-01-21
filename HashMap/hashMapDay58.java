@@ -150,6 +150,24 @@ public class hashMapDay58 {
 
 
     }
+
+    public static int singleNumber(int num[]){
+        HashMap<Integer,Integer>mp=new HashMap<>();
+
+        for(int n:num){
+            mp.put(n,mp.getOrDefault(n,0)+1);
+        }
+
+        for(int k:mp.keySet()){
+            if(mp.get(k)==1){
+                return k;
+            }
+        }
+
+        return -1;
+    }
+
+
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -195,6 +213,13 @@ public class hashMapDay58 {
         String s8 = "abacbc";
         checkOccurancesofCharacter(s8);
         System.out.println(checkOccurancesofCharacter(s8));
+
+        //Day 66-Single Number
+
+        int num[]={4,1,2,1,2};
+        singleNumber(num);
+        System.out.println(singleNumber(num));
+
         
 
 
