@@ -167,7 +167,23 @@ public class hashMapDay58 {
         return -1;
     }
 
+    public static int countKDifference(int[] nums, int k) {
+            HashMap<Integer,Integer>mp=new HashMap<>();
 
+            for(int n:nums){
+                mp.put(n,mp.getOrDefault(n,0)+1);
+            }
+
+            int ct=0;
+
+            for(int x:mp.keySet()){
+                if(mp.containsKey(x+k)){
+                    ct +=mp.get(x)*mp.get(x+k);
+                }
+            }
+
+            return ct;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -219,7 +235,14 @@ public class hashMapDay58 {
         int num[]={4,1,2,1,2};
         singleNumber(num);
         System.out.println(singleNumber(num));
+        
 
+        //Day 67-Count Number of pairs withe absolute differnce
+
+          int num2[]={1,2,2,1};
+          int k=1;
+          countKDifference(num2, k);
+          System.out.println(countKDifference(num2, k));
         
 
 
