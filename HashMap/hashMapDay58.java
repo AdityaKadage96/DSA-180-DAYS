@@ -184,6 +184,22 @@ public class hashMapDay58 {
 
             return ct;
     }
+
+    public static boolean dublicatNum2(int arr[],int k){
+        HashMap<Integer,Integer>mp=new HashMap<>();
+
+        for(int i=0;i<arr.length;i++){
+            if(mp.containsKey(arr[i])){
+                if(i-mp.get(arr[i])<=k){
+                      return true;
+                }
+            }
+
+            mp.put(arr[i],i);
+        }
+
+        return false;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -243,6 +259,14 @@ public class hashMapDay58 {
           int k=1;
           countKDifference(num2, k);
           System.out.println(countKDifference(num2, k));
+
+
+        //Day 68-Contain duplicate II
+
+        int arr4[]={1,2,3,1};
+        int k2=3;
+        dublicatNum2(arr4, k2);
+        System.out.println(dublicatNum2(arr4, k2));
         
 
 
