@@ -200,6 +200,26 @@ public class hashMapDay58 {
 
         return false;
     }
+
+    public static boolean twoArrayEqualSubarray(int target[],int arr[]){
+        HashMap<Integer,Integer>mp=new HashMap<>();
+
+        for(int n:target){
+            mp.put(n,mp.getOrDefault(n,0)+1);
+        }
+
+        for(int n:arr){
+            mp.put(n,mp.getOrDefault(n, 0)-1);
+        }
+
+        for(int v:mp.values()){
+            if(v!=0){
+                return false;
+            }
+        }
+
+        return true;
+    }
     public static void main(String[]args){
         //Day 58- First uniqu character in String
 
@@ -268,6 +288,14 @@ public class hashMapDay58 {
         dublicatNum2(arr4, k2);
         System.out.println(dublicatNum2(arr4, k2));
         
+
+        //Day 69-Make Two arrays Equal by reversing subarray
+
+        int target[]={1,2,3,4};
+        int arr6[]={2,4,1,3};
+
+        twoArrayEqualSubarray(target, arr6);
+        System.out.println(twoArrayEqualSubarray(target, arr6));
 
 
 
