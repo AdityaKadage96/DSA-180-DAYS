@@ -77,6 +77,23 @@ public class binarySearchDay71 {
 
         return ans;
     }
+
+    public static int peekElement(int arr[]){
+        int low=0;
+        int high=arr.length-1;
+
+        while(low<high){
+            int mid=low+(high-low)/2;
+
+            if(arr[mid]<arr[mid+1]){
+                low=mid+1;
+            }else{
+                high=mid;
+            }
+        }
+
+        return low;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -92,5 +109,12 @@ public class binarySearchDay71 {
        int target=8;
        searchRange(arr2, target);
        System.out.println(searchRange(arr2, target));
+
+
+       //3.find peek elment in an array
+
+       int arr3[]={1,2,3,4,5,6,3,4,2};
+       peekElement(arr3);
+       System.out.println(peekElement(arr3));
     }
 }
