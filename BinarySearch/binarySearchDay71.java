@@ -94,6 +94,24 @@ public class binarySearchDay71 {
 
         return low;
     }
+
+    public static int peekIdxInMountainArray(int arr[]){
+        int low=0;
+        int high=arr.length-1;
+        int res=-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+
+            if(arr[mid]<arr[mid+1]){
+                low=mid+1;
+            }else{
+                res=mid;
+                high=mid+1;
+            }
+        }
+
+        return res;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -103,7 +121,7 @@ public class binarySearchDay71 {
        System.out.println(searchInsert(arr, tar));
 
 
-       //2.find first and last position of element in sorted order
+       //Day 72-2.find first and last position of element in sorted order
 
        int arr2[]={5,7,7,8,8,10};
        int target=8;
@@ -111,10 +129,17 @@ public class binarySearchDay71 {
        System.out.println(searchRange(arr2, target));
 
 
-       //3.find peek elment in an array
+       //Day 73-3.find peek elment in an array
 
        int arr3[]={1,2,3,4,5,6,3,4,2};
        peekElement(arr3);
        System.out.println(peekElement(arr3));
+
+
+       //Day 74- Peek index in a Mountain array
+
+       int arr4[]={1,2,3,5,3,2};
+       peekIdxInMountainArray(arr4);
+       System.out.println(peekIdxInMountainArray(arr4));
     }
 }
