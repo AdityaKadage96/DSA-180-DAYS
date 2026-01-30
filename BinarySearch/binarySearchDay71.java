@@ -112,6 +112,26 @@ public class binarySearchDay71 {
 
         return res;
     }
+
+    public static int findMin(int arr[]){
+        int low=0;
+        int high=arr.length-1;
+        int n=arr.length;
+
+        int res=-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+
+            if(arr[mid]>arr[n-1]){
+                low=mid+1;
+            }else{
+                res=mid;
+                high=mid-1;
+            }
+        }
+
+        return arr[res];
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -141,5 +161,12 @@ public class binarySearchDay71 {
        int arr4[]={1,2,3,5,3,2};
        peekIdxInMountainArray(arr4);
        System.out.println(peekIdxInMountainArray(arr4));
+
+
+       //Day 75-Find minimum in rotated sorted array
+
+       int arr5[]={3,4,5,1,2};
+       findMin(arr5);
+       System.out.println(findMin(arr5));
     }
 }
