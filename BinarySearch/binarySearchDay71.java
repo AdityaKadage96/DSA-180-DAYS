@@ -132,6 +132,47 @@ public class binarySearchDay71 {
 
         return arr[res];
     }
+
+     public static int search(int[] nums, int target) {
+        int low=0;
+        int high=nums.length-1;
+        int n=nums.length;
+        while(low <=high){
+            int guess=(low+high)/2;
+
+            if(nums[guess]==target){
+                return guess;
+            }
+
+            if(nums[guess]>nums[high]){
+                if(nums[guess]<target){
+                    low=guess+1;
+                }else{
+                    if(nums[low]>target){
+                        low=guess+1;
+                    }else{
+                        high=guess-1;
+                    }
+
+                    
+                }
+            }else{
+                 if(nums[guess]>target){
+                    high=guess-1;
+                }else{
+                   if(nums[high]<target){
+                      high=guess-1;
+                   }else{
+                      low=guess+1;
+                    }
+                }
+            }
+
+         
+        }
+
+        return -1;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -168,5 +209,14 @@ public class binarySearchDay71 {
        int arr5[]={3,4,5,1,2};
        findMin(arr5);
        System.out.println(findMin(arr5));
+
+
+       //Day 76-Search in rotated sorted array
+       int arr6[]={4,5,6,7,0,1,2};
+       int tar1=0;
+       
+       search(arr6, target);
+       System.out.println(search(arr6, target));
+       
     }
 }
