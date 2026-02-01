@@ -173,6 +173,33 @@ public class binarySearchDay71 {
 
         return -1;
     }
+
+    public static int minEatingSpeed(int[] piles, int h) {
+        int low=1;
+
+        int high=0;
+
+        for(int n:piles){
+            high=Math.max(high,n);
+        }
+
+        while(low<=high){
+            int mid=low + (high-low)/2;
+            long hrs=0;
+
+            for(int n:piles){
+                hrs += (n+mid-1)/mid;
+            }
+
+            if(hrs<=h){
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+
+        return low;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -217,6 +244,12 @@ public class binarySearchDay71 {
        
        search(arr6, target);
        System.out.println(search(arr6, target));
+
+       //Day 77- Koko eating Banana
+       int arr7[]={3,6,7,11};
+       int hrs=8;
+       minEatingSpeed(arr7, hrs);
+       System.out.println(minEatingSpeed(arr7, hrs));
        
     }
 }
