@@ -236,6 +236,26 @@ public class binarySearchDay71 {
 
         return low;
     }
+
+    public static boolean isPerfectSquare(int num) {
+        long low=0;
+        long high=num;
+
+        while(low<=high){
+            long mid=low+(high-low)/2;
+            long sqr=mid*mid;
+
+            if(sqr==num){
+                return true;
+            }else if(sqr<num){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+
+        return false;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -262,9 +282,9 @@ public class binarySearchDay71 {
 
        //Day 74- Peek index in a Mountain array
 
-       int arr4[]={1,2,3,5,3,2};
-       peekIdxInMountainArray(arr4);
-       System.out.println(peekIdxInMountainArray(arr4));
+    //    int arr4[]={1,2,3,5,3,2};
+    //    peekIdxInMountainArray(arr4);
+    //    System.out.println(peekIdxInMountainArray(arr4));
 
 
        //Day 75-Find minimum in rotated sorted array
@@ -295,6 +315,12 @@ public class binarySearchDay71 {
 
         int result = sol.guessNumber(n);
         System.out.println("Guessed Number: " + result);
+
+
+        //Day 79-valid perfect square
+        int num = 16;
+        isPerfectSquare(num);
+        System.out.println(isPerfectSquare(num));
        
     }
 }
