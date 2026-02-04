@@ -256,6 +256,26 @@ public class binarySearchDay71 {
 
         return false;
     }
+
+    public static int arrangCoins(int n){
+        long low=0;
+        long high=n;
+        while(low<=high){
+            long mid=low + (high-low)/2;
+            long coin=mid*(mid+1)/2;
+            
+            if(coin == 0){
+                return (int) mid;
+            }else if(coin <=high){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+
+        }
+
+        return (int) high;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -321,6 +341,12 @@ public class binarySearchDay71 {
         int num = 16;
         isPerfectSquare(num);
         System.out.println(isPerfectSquare(num));
+
+        //Day 80- Arrange Coins
+
+        int n1=5;
+        arrangCoins(n1);
+        System.out.println(arrangCoins(n1));
        
     }
 }
