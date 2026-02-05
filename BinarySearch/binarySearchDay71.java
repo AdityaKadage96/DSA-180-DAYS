@@ -276,6 +276,24 @@ public class binarySearchDay71 {
 
         return (int) high;
     }
+
+    public static char nextGreatestLetter(char[] letters, char target) {
+        int low=0;
+        int high=letters.length-1;
+
+        while(low<=high){
+            int mid=low+(high-low)/2;
+
+            if(letters[mid]<=target){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+
+        return letters[low % letters.length];
+
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -347,6 +365,17 @@ public class binarySearchDay71 {
         int n1=5;
         arrangCoins(n1);
         System.out.println(arrangCoins(n1));
+
+
+        //Day 81-Find smallest letter greater than target
+
+        char letters[] = {'c', 'f', 'j'};
+        char targ = 'j';
+
+        nextGreatestLetter(letters, targ);
+        System.out.println(nextGreatestLetter(letters, targ));
+
+        
        
     }
 }
