@@ -1,5 +1,6 @@
 package BinarySearch;
 
+import java.util.Arrays;
 class GuessGame {
     // This is the number to be guessed
     private int pick = 6;   //change this value to test
@@ -294,6 +295,30 @@ public class binarySearchDay71 {
         return letters[low % letters.length];
 
     }
+
+    public static boolean checkIfExist(int arr[]){
+        Arrays.sort(arr);
+
+        for(int i=0;i<arr.length;i++){
+            int target=arr[i]*2;
+
+            int low=0;
+            int high=arr.length-1;
+
+            while(low<=high){
+                int mid=low+(high-low);
+
+                if(arr[mid]==target && mid!=i){
+                    return true;
+                }else if(arr[mid]<target){
+                    low=mid+1;
+                }else{
+                    high=mid-1;
+                }
+            }
+        }
+        return false;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -374,6 +399,12 @@ public class binarySearchDay71 {
 
         nextGreatestLetter(letters, targ);
         System.out.println(nextGreatestLetter(letters, targ));
+
+        //Day 82-Check if N and its duplicat exist
+
+        int arrN[]={10,2,5,3};
+        checkIfExist(arrN);
+        System.out.println(checkIfExist(arrN));
 
         
        
