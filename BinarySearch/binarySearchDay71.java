@@ -337,6 +337,27 @@ public class binarySearchDay71 {
 
         return low+k;
     }
+
+    public static int mySqrt(int x) {
+
+        if(x<2) return x;
+        int low=0;
+        int high=x/2;
+        int res=0;
+
+        while(low<=high){
+            int mid=low+(high-low)/2;
+
+            if((long)mid*mid<=x){
+                res=mid;
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+
+        return res;
+    }
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -430,6 +451,12 @@ public class binarySearchDay71 {
         int k=5;
         findKthPositive(arrKth, k);
         System.out.println(findKthPositive(arrKth, k));
+
+       // Day 84- Square(x)
+
+       int x = 4;
+        mySqrt(x);
+        System.out.println(mySqrt(x));
 
         
        
