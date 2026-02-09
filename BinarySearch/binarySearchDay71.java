@@ -358,6 +358,28 @@ public class binarySearchDay71 {
 
         return res;
     }
+
+     public static int singleNonDuplicate(int[] nums) {
+        int low=0;
+        int high=nums.length-1;
+
+        while(low < high){
+            int mid=low+(high-low)/2;
+
+            if(mid % 2 == 1){
+                mid--;
+            }
+
+            if(nums[mid]==nums[mid+1]){
+                low=mid+2;
+            }else{
+                high=mid;
+            }
+        }
+
+        return nums[low];
+    }
+
     public static void main(String []args){
        //1.Search Insert Position 
 
@@ -457,6 +479,12 @@ public class binarySearchDay71 {
        int x = 4;
         mySqrt(x);
         System.out.println(mySqrt(x));
+
+    // Day 85-Single element in sorted array
+
+    int arr56[]={1,1,2,3,3,4,4,8,8};
+    singleNonDuplicate(arr56);
+    System.out.println(singleNonDuplicate(arr56));
 
         
        
