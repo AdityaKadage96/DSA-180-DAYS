@@ -486,6 +486,8 @@ public class binarySearchDay71 {
     singleNonDuplicate(arr56);
     System.out.println(singleNonDuplicate(arr56));
 
+    
+
         
        
     }
