@@ -27,6 +27,19 @@ public class queueDay86{
             return n-(t-(n-1));
         }
     }
+
+    public static int removeElement(int[] nums, int val) {
+        int idx=0;
+
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=val){
+                nums[idx]=nums[i];
+                idx++;
+            }
+        }
+
+        return idx;
+    }
     public static void main(String []args){
       //Day 86-Time needed to buy tickets
 
@@ -42,5 +55,13 @@ public class queueDay86{
       int n=4;
       passThePillow(n, time);
       System.out.println(passThePillow(n, time));
+
+
+      //Day 88- Remove element
+      int nums[]={3,2,2,3};
+      int val=3;
+
+      removeElement(nums, val);
+      System.out.println(removeElement(nums, val));
     }
 }
