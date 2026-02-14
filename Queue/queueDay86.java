@@ -40,6 +40,19 @@ public class queueDay86{
 
         return idx;
     }
+
+    public static boolean queryString(String s, int n) {
+        
+        for(int i=1;i<=n;i++){
+            String binary=Integer.toBinaryString(i);
+
+            if(!s.contains(binary)){
+                return false;
+            }
+        }
+
+        return true;
+    }
     public static void main(String []args){
       //Day 86-Time needed to buy tickets
 
@@ -63,5 +76,12 @@ public class queueDay86{
 
       removeElement(nums, val);
       System.out.println(removeElement(nums, val));
+
+
+      //Day 89 -Binary String with substring represting 1 TO N;
+      String s="0110";
+      int n1=3;
+      queryString(s, n1);
+      System.out.println(queryString(s, n1));
     }
 }
