@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.List;
+import java.util.ArrayList;
 
 public class priorityQueueDay92{
      public static int findKthLargest(int[] nums, int k) {
@@ -50,6 +52,37 @@ public class priorityQueueDay92{
 
         return ans;
     }
+
+     public static List<String> topKFrequentWords(String[] words, int k) {
+        HashMap<String,Integer>mp=new HashMap<>();
+
+        for(String word:words){
+            mp.put(word,mp.getOrDefault(word,0)+1);
+        }
+
+        PriorityQueue<String>pq=new PriorityQueue<>(
+            (a,b) ->{
+                if(mp.get(a).equals(mp.get(b))){
+                    return a.compareTo(b);
+                }
+
+                return mp.get(b)-mp.get(a);
+            }
+        );
+
+        for(String w:mp.keySet()){
+            pq.add(w);
+        }
+
+        List<String>result=new ArrayList<>();
+
+
+        for(int i=0;i<k;i++){
+            result.add(pq.poll());
+        }
+
+        return result;
+    }
     public static void main(String []args){
       //Day 92- Kth largest element in an array
     int nums[]={3,2,1,5,6,4};
@@ -67,6 +100,16 @@ public class priorityQueueDay92{
     int[] ans = obj.topKFrequent(arr,k2);
 
     System.out.println(Arrays.toString(ans));
+
+    //Day 94-Top K frequent words
+    String words[]={"i","love","leetcode","i","love","coding"};
+    int k4=2;
+    
+     
+        List<String> answer = obj.topKFrequentWords(words, k);
+
+       
+        System.out.println(answer);
     
     
 
