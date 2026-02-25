@@ -1,6 +1,7 @@
 package PriorityQueue;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
@@ -83,6 +84,29 @@ public class priorityQueueDay92{
 
         return result;
     }
+
+    public static int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder());
+
+        for(int s:stones){
+            pq.offer(s);
+        }
+
+        while(pq.size()>1){
+            int first=pq.poll();
+            int second=pq.poll();
+
+            if(first!=second){
+                pq.offer(first-second);
+            }
+        }
+
+        if(pq.isEmpty()){
+            return 0;
+        }else{
+            return pq.poll();
+        }
+    }
     public static void main(String []args){
       //Day 92- Kth largest element in an array
     int nums[]={3,2,1,5,6,4};
@@ -110,6 +134,13 @@ public class priorityQueueDay92{
 
        
         System.out.println(answer);
+
+    //Day 95-Last stone weight
+
+    int stones[]={2,7,4,1,8,1};
+    int res5=lastStoneWeight(stones);
+    System.out.println(res5);
+
     
     
 
