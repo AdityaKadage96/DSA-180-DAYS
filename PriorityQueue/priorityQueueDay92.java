@@ -107,6 +107,32 @@ public class priorityQueueDay92{
             return pq.poll();
         }
     }
+
+    public static long pickGifts(int[] gifts, int k) {
+        PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder());
+
+        for(int g:gifts){
+            pq.offer(g);
+        }
+
+
+        while(k-- > 0){
+            int max=pq.poll();
+
+            int remain=(int)Math.sqrt(max);
+            pq.offer(remain);
+        }
+
+        long sum=0;
+
+        while(!pq.isEmpty()){
+            sum +=pq.poll();
+        }
+
+        return sum;
+    }
+
+
     public static void main(String []args){
       //Day 92- Kth largest element in an array
     int nums[]={3,2,1,5,6,4};
@@ -140,6 +166,17 @@ public class priorityQueueDay92{
     int stones[]={2,7,4,1,8,1};
     int res5=lastStoneWeight(stones);
     System.out.println(res5);
+
+
+    //Day 96-Take Gifte from the  reachest  pile
+
+    int gifts[]={25,64,9,4,100};
+    int k6=2;
+
+    pickGifts(gifts, k6);
+    System.out.println(pickGifts(gifts, k6));
+
+
 
     
     
